@@ -1,0 +1,43 @@
+<div>
+<canvas id="myCanvas" width="720" height="720"></canvas>
+<script>
+var start = new Date('July 1, 2024 00:00:00');
+var early = new Date('December 9, 2024 22:00:00');
+var close = new Date('January 17, 2025 22:00:00');
+var today = new Date();
+
+var latefee = Math.min(Math.max(0.0, (early.getTime()-start.getTime()) / (close.getTime()-start.getTime() + 0.0)), 1.0)
+var elapsed = Math.min(Math.max(0.0, (today.getTime()-start.getTime()) / (close.getTime()-start.getTime() + 0.0)), 1.0)
+
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+var x = canvas.width / 2;
+var y = canvas.height / 2;
+var r = Math.min(x,y) * 4 / 5;
+var a = 0.75 * Math.PI;
+var b = 2.25 * Math.PI;
+var c = a + elapsed*(b-a);
+var d = a + latefee*(b-a);
+var counterClockwise = false;
+
+// gauge extent
+context.beginPath();
+context.arc(x, y, r, a, b, counterClockwise);
+context.lineWidth = 32;
+context.strokeStyle = '#EBEBEB';
+context.stroke();
+
+// late fee extent
+context.beginPath();
+context.arc(x, y, r, d, b, counterClockwise);
+context.lineWidth = 32;
+context.strokeStyle = (c > d) ? '#FF2600' : '#FFEBEB';
+context.stroke();
+
+// elapsed extent
+context.beginPath();
+context.arc(x, y, r, a, c, counterClockwise);
+context.strokeStyle = '#B8C8D1';
+context.stroke();
+</script>
+</div>
