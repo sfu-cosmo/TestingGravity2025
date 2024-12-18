@@ -1,0 +1,33 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+% use the corresponding paper size for your ticket definition
+\documentclass[letterpaper,12pt]{letter}
+
+% load ticket.sty with the appropriate ticket definition
+%\usepackage[avery4x3,cutmark,boxed]{ticket}
+\usepackage[avery4x3]{ticket}
+
+% load fonts and graphics
+\usepackage{xltxtra,xunicode,fontspec,graphicx}
+\defaultfontfeatures{Scale=MatchLowercase,Ligatures=TeX}
+
+% make default ticket background empty
+\renewcommand{\ticketdefault}{}
+
+% what do you like to put in your ticket
+\newcommand{\nametag}[3][background]{\ticket{%
+    \put(0,0){\includegraphics{#1}}%
+    \put(2.0,1.6){\makebox[0mm]{\fontsize{32pt}{32pt}\fontspec{Lato Regular} #2}}%
+    %\put(2.0,1.0){\makebox[0mm]{\fontsize{24pt}{32pt}\fontspec{Lato Light Italic} #3}}%
+    \put(0.1,1.0){\begin{minipage}[t]{3.8in}\center{\fontsize{24pt}{32pt}\fontspec{Lato Light Italic} #3}\end{minipage}}%
+}}
+
+\begin{document}
+\nametag{}{}
+\nametag{}{}
+\nametag{}{}
+\nametag{}{}
+\nametag{}{}
+\nametag{}{}
+\end{document}

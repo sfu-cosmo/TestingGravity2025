@@ -1,0 +1,11 @@
+%%
+%% ticket for "Avery 4x3 Name Badge Kit, Model 05393"
+%% margins adjusted for Konica Minolta C3100P feed tray
+%% (centered output for PDF needs hoffset = -0.75in)
+%%
+\unitlength=1in
+\hoffset=-0.77in
+\voffset=-0.1665in
+\ticketNumbers{2}{3}
+\ticketSize{4}{3}
+\ticketDistance{0}{0}

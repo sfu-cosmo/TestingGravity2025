@@ -1,0 +1,44 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+% use the corresponding paper size for your ticket definition
+\documentclass[letterpaper,12pt,twocolumn]{article}
+
+% load fonts and graphics
+\usepackage{xifthen,xltxtra,xunicode,fontspec,graphicx}
+\defaultfontfeatures{Scale=MatchLowercase,Ligatures=TeX}
+
+%%% Set paper size and margins
+\usepackage[letterpaper]{anysize}       % Set paper size and margins
+\marginsize{0.5in}{0.5in}{0.5in}{0.5in}
+\setlength{\headheight}{32pt}
+\setlength{\headsep}{12pt}
+\flushbottom
+
+%%% Customize layout
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagestyle{fancy}
+\lhead{\fontspec{Cinzel}\huge Testing Gravity 2023}\chead{}
+\rhead{\fontspec{Lato Light Italic}\Large Registered Participants}
+\lfoot{}\cfoot{}\rfoot{}
+%\renewcommand{\headrulewidth}{1pt}
+%\renewcommand{\footrulewidth}{1pt}
+
+
+% now what do you like to put in your ticket
+\newcommand{\nametag}[3][]{{%
+\item
+    {\fontspec{Lato Regular} #2}
+    {\fontspec{Lato Light Italic} \ifthenelse{\isempty{#3}}{}{(#3)}}%
+}}
+
+
+\begin{document}
+\begin{itemize}
+\setlength\itemsep{0pt}
+\input{participants.tex}
+\end{itemize}
+\end{document}
+
+
