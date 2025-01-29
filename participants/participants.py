@@ -41,8 +41,8 @@ participants = [
   	["Pogosian", "Levon", "Simon Fraser University"],
 ]
 
-soc = ["Frolov", "McKeen", "Medeiros", "Pogosian", "Ross", "Scott", "Silvestri"]
-loc = []
+soc = ["Frolov", "McKeen", "Medeiros", "Mirpoorian", "Pogosian", "Ross", "Scott", "Silvestri"]
+loc = ["Kuhn", "Miller", "Mirpoorian", "Balaji", "Emond", "Srivastava", "Nezhadsafavi", "Barenboim", "Quispe", "Abghari"]
 exclude = []
 
 table = []
@@ -119,10 +119,15 @@ with open('participants.csv', 'r', encoding='utf-8') as csvfile:
 		affiliation = re.sub(r"[\(\)]+", '', affiliation)
 		
 		# fix stuff for people who cannot spell
+		if last == "CARLSON":
+			last = "Carlson"; first = "Michael"
+		if last == "SOTANI":
+			last = "Sotani"; first = "Hajime"
 		if last == "DE OLIVEIRA":
 			last = "de Oliveira"; first = "Henrique"
 		if last == "Kuhn": affiliation = "UBC"
 		if last == "Lindsay": affiliation = "Retired"
+		if last == "Thornburg": affiliation = "Retired"
 		#if last == "Afshordi": affiliation = "Perimeter/Waterloo"
 		#if last == "Nakato": affiliation = "Kobe University"
 		#if last == "Sedrakian": affiliation = "Frankfurt Institute for Advnaced Studies"
@@ -139,7 +144,7 @@ for p in itertools.groupby(participants):
 	last,first,affiliation = p[0]
 	
 	# abbreviate name if it is too long
-	if (len(first+last) > 24):
+	if (len(first+last) > (19 if output == 'tags' else 24)):
 		first = re.sub(r'([A-Z])[a-z]+', r'\1.', first)
 	
 	# special roles...
