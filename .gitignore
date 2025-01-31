@@ -1,6 +1,8 @@
 # ignore backups and source images
 artwork/sources/*
 backups/*
+photos/*
+raws/*
 snippets/*
 
 # ignore posted talks
